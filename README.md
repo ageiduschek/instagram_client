@@ -49,7 +49,7 @@ Describe any challenges encountered while building the app.
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
 - [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
-- [RoundImageView](https://github.com/vinc3m1/RoundedImageView)
+- [RoundImageView](https://github.com/vinc3m1/RoundedImageView) - Round image view for profile picture
 - [PrettyTime](http://www.ocpsoft.org/prettytime/) - Relative time formatting
 
 ## License
