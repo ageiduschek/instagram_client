@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivPhoto"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:minHeight="50dp"/>
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rivProfilePhoto"
+        android:scaleType="fitCenter"
+        android:layout_below="@+id/ivPhoto"
+        app:riv_corner_radius="30dip"
+        app:riv_border_width="1dip"
+        app:riv_border_color="#333333"
+        app:riv_mutate_background="true"
+        app:riv_tile_mode="repeat"
+        app:riv_oval="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvUsername"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rivProfilePhoto"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTimeElapsed"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvUsername"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLikesCount"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvTimeElapsed"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCaption"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvLikesCount"
+        android:textSize="14sp"
+        android:maxLines="3"
+        android:ellipsize="end"/>
+
+</RelativeLayout>

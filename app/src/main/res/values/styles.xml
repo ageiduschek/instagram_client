@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/ActionBarTheme</item>
+        <item name="actionBarStyle">@style/ActionBarTheme</item>
+    </style>
+
+    <color name="main_blue">#125688</color>
+
+    <!-- ActionBar styles -->
+    <!-- TODO(ageiduschek): WHY DOESN'T THIS WORK???? -->
+    <style name="ActionBarTheme"
+           parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/main_blue</item>
+        <item name="background">@color/main_blue</item>
+    </style>
+
+</resources>
