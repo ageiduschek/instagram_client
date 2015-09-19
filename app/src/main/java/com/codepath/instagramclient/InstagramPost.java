@@ -7,10 +7,10 @@ public class InstagramPost {
     private String imageUrl;
     private String imageHeight;
     private Long creationTime;
-    private String likesCount;
+    private int likesCount;
 
     public InstagramPost(String username, String profilePhotoUrl, String caption, String imageUrl,
-                         String imageHeight, Long creationTime, String likesCount) {
+                         String imageHeight, Long creationTime, int likesCount) {
         this.username = username;
         this.profilePhotoUrl = profilePhotoUrl;
         this.caption = caption;
@@ -44,7 +44,7 @@ public class InstagramPost {
         return creationTime;
     }
 
-    public String getLikesCount() {
+    public int getLikesCount() {
         return likesCount;
     }
 }

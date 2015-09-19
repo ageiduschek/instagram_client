@@ -125,7 +125,7 @@ public class PostFeedActivity extends AppCompatActivity {
                                 postJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url"),
                                 postJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("height"),
                                 Long.parseLong(postJSON.getString("created_time")),
-                                postJSON.getJSONObject("likes").getString("count"));
+                                Integer.parseInt(postJSON.getJSONObject("likes").getString("count")));
                         mPosts.add(post);
                     }
 
@@ -147,8 +147,6 @@ public class PostFeedActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_photo_feed, menu);
         return true;
     }
 

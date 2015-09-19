@@ -8,13 +8,23 @@
     </style>
 
     <color name="main_blue">#125688</color>
+    <color name="white">#FFFFFF</color>
+    <color name="light_grey">#AAAAAA</color>
 
     <!-- ActionBar styles -->
-    <!-- TODO(ageiduschek): WHY DOESN'T THIS WORK???? -->
     <style name="ActionBarTheme"
            parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/main_blue</item>
         <item name="background">@color/main_blue</item>
+        <item name="android:titleTextStyle">@style/ActionBarTextStyle</item>
+        <item name="titleTextStyle">@style/ActionBarTextStyle</item>
+
+    </style>
+
+    <style name="ActionBarTextStyle"
+           parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

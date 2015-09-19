@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Popular Photos</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="likes">"likes"</string>
+
+    <plurals name="likes">
+        <item quantity="one">like</item>
+        <item quantity="other">likes</item>
+    </plurals>
 </resources>

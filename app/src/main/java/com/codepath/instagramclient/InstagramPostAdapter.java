@@ -13,8 +13,10 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import com.ocpsoft.pretty.time.PrettyTime;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class InstagramPostAdapter extends ArrayAdapter<InstagramPost> {
 
@@ -22,6 +24,15 @@ public class InstagramPostAdapter extends ArrayAdapter<InstagramPost> {
     // We need: context, data source
     public InstagramPostAdapter(Context context, List<InstagramPost> objects) {
         super(context, android.R.layout.simple_list_item_1, objects);
+    }
+
+    private static class PostSubViews {
+        TextView username;
+        RoundedImageView profilePhoto;
+        TextView timeElapsed;
+        TextView likesCount;
+        TextView caption;
+        ImageView photo;
     }
 
     // What our item looks like
@@ -39,37 +50,44 @@ public class InstagramPostAdapter extends ArrayAdapter<InstagramPost> {
         // Get the data item for this position
         InstagramPost post = getItem(position);
 
+        PostSubViews subViews;
         // Check if we are using a recycled view, if not we need to inflate
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_post, parent, false);
+            subViews = new PostSubViews();
+            subViews.profilePhoto = (RoundedImageView) convertView.findViewById(R.id.rivProfilePhoto);
+            subViews.username = (TextView) convertView.findViewById(R.id.tvUsername);
+            subViews.timeElapsed = (TextView) convertView.findViewById(R.id.tvTimeElapsed);
+            subViews.likesCount = (TextView) convertView.findViewById(R.id.tvLikesCount);
+            subViews.caption = (TextView) convertView.findViewById(R.id.tvCaption);
+            subViews.photo = (ImageView) convertView.findViewById(R.id.ivPhoto);
+            convertView.setTag(subViews);
+        } else {
+            subViews = (PostSubViews) convertView.getTag();
         }
 
         // Lookup the views for populating the data
-        RoundedImageView rivProfilePhoto = (RoundedImageView) convertView.findViewById(R.id.rivProfilePhoto);
-        TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
-        TextView tvTimeElapsed = (TextView) convertView.findViewById(R.id.tvTimeElapsed);
-        TextView tvLikesCount = (TextView) convertView.findViewById(R.id.tvLikesCount);
-        TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
-        ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
+
 
         // Insert the model data into each of the view items
-        tvUsername.setText(post.getUsername());
-        tvTimeElapsed.setText(new PrettyTime().format(new Date(post.getCreationTimeSeconds() * 1000)));
-        tvLikesCount.setText(post.getLikesCount() + " likes");
+        subViews.username.setText(post.getUsername());
+        subViews.timeElapsed.setText(new PrettyTime().format(new Date(post.getCreationTimeSeconds() * 1000)));
+        String formattedLikes = NumberFormat.getNumberInstance(Locale.getDefault()).format(post.getLikesCount());
+        subViews.likesCount.setText(formattedLikes + " " + getContext().getResources().getQuantityString(R.plurals.likes, post.getLikesCount()));
         if (post.getCaption() != null) {
-            tvCaption.setText(post.getCaption());
+            subViews.caption.setText(post.getCaption());
         }
 
         // Clear images because this could be a recycled view
-        rivProfilePhoto.setImageResource(0);
-        ivPhoto.setImageResource(0);
+        subViews.profilePhoto.setImageResource(0);
+        subViews.photo.setImageResource(0);
 
         if (post.getProfilePhotoUrl() != null) {
-            Picasso.with(getContext()).load(post.getProfilePhotoUrl()).into(rivProfilePhoto);
+            Picasso.with(getContext()).load(post.getProfilePhotoUrl()).into(subViews.profilePhoto);
         } else {
             // TODO(ageiduschek): Load some placeholder graphic
         }
-        Picasso.with(getContext()).load(post.getImageUrl()).into(ivPhoto);
+        Picasso.with(getContext()).load(post.getImageUrl()).into(subViews.photo);
 
 
         // Return the created item as a view
