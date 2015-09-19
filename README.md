@@ -19,8 +19,8 @@ The following **optional** features are implemented:
 * [ ] Show latest comments for each photo
 * [ ] Display each photo with the same style and proportions as the real Instagram
 * [x] Display each user profile image using a RoundedImageViewDisplay each user profile image using a [RoundedImageView](https://github.com/vinc3m1/RoundedImageView)
-* [ ] Display a nice default placeholder graphic for each image during loading
-* [ ] Improved the user interface through styling and coloring
+* [x] Display a nice default placeholder graphic for each image during loading
+* [x] Improved the user interface through styling and coloring
 
 The following **bonus** features are implemented:
 
@@ -30,13 +30,14 @@ The following **bonus** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [x] Formatting for the number of likes to include commas
+* [x] Pluralized the "likes" string
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/ageiduschek/instagram_client/blob/master/app_walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
