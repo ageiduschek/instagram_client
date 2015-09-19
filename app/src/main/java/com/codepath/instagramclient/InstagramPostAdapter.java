@@ -87,7 +87,7 @@ public class InstagramPostAdapter extends ArrayAdapter<InstagramPost> {
         } else {
             // TODO(ageiduschek): Load some placeholder graphic
         }
-        Picasso.with(getContext()).load(post.getImageUrl()).into(subViews.photo);
+        Picasso.with(getContext()).load(post.getImageUrl()).placeholder(R.drawable.image_placeholder).into(subViews.photo);
 
 
         // Return the created item as a view
